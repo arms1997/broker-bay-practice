@@ -1,3 +1,5 @@
+import moment from "moment";
+
 import "./styles/NewsItem.scss";
 
 export default function NewsItem({ news, onClick }) {
@@ -10,7 +12,7 @@ export default function NewsItem({ news, onClick }) {
       />
       <div className="NewsItem__content-text">
         <p>{news.title}</p>
-        <p>{news.publishedAt}</p>
+        <p>{moment(news.publishedAt).format("YYYY-MM-DD")}</p>
       </div>
     </article>
   );
