@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import NewsItem from "./NewsItem";
 import "./styles/NewsContainer.scss";
 
-export default function NewsContainer({}) {
+export default function NewsContainer({ setNews }) {
   const [newsData, set] = useState(null);
 
   useEffect(() => {
@@ -22,7 +22,13 @@ export default function NewsContainer({}) {
   const newsList =
     newsData &&
     newsData.map((news, index) => {
-      return <NewsItem news={{ ...news }} key={index} />;
+      return (
+        <NewsItem
+          news={{ ...news }}
+          key={index}
+          onClick={() => setNews(news)}
+        />
+      );
     });
 
   return <div className="NewsContainer">{newsData && newsList}</div>;
