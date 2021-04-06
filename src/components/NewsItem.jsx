@@ -1,3 +1,5 @@
+import "./styles/NewsItem.scss";
+
 export default function NewsItem({ news }) {
   return (
     <article>

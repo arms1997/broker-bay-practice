@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 import NewsItem from "./NewsItem";
+import "./styles/NewsContainer.scss";
 
 export default function NewsContainer({}) {
   const [newsData, set] = useState();
