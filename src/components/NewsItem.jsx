@@ -1,8 +1,8 @@
 import "./styles/NewsItem.scss";
 
-export default function NewsItem({ news }) {
+export default function NewsItem({ news, onClick }) {
   return (
-    <article className="NewsItem__content">
+    <article className="NewsItem__content" onClick={onClick}>
       <img
         className="NewsItem__content-image"
         src={news.urlToImage}
