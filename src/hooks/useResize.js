@@ -6,6 +6,7 @@ export default function useResize() {
 
   useEffect(() => {
     let timerID = null;
+
     const resizeListener = () => {
       clearTimeout(timerID);
 
@@ -15,6 +16,8 @@ export default function useResize() {
         setMobile(window.innerWidth < 480);
       }, 1000);
     };
+
+    resizeListener();
 
     window.addEventListener("resize", resizeListener);
 
