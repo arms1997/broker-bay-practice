@@ -1,10 +1,10 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-
+import useResize from "../hooks/useResize";
 import NewsItem from "./NewsItem";
 import "./styles/NewsContainer.scss";
 
 export default function NewsContainer({ newsData, setNews }) {
+  const { isMobile } = useResize();
+
   const newsList =
     newsData &&
     newsData.map((news, index) => {
@@ -17,5 +17,9 @@ export default function NewsContainer({ newsData, setNews }) {
       );
     });
 
-  return <div className="NewsContainer">{newsData && newsList}</div>;
+  return (
+    <div className={isMobile ? "NewsContainer-mobile" : "NewsContainer"}>
+      {newsData && newsList}
+    </div>
+  );
 }
