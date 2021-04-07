@@ -4,21 +4,7 @@ import { useState, useEffect } from "react";
 import NewsItem from "./NewsItem";
 import "./styles/NewsContainer.scss";
 
-export default function NewsContainer({ setNews }) {
-  const [newsData, set] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get(
-        "https://newsapi.org/v2/everything?q=tesla&sortBy=publishedAt&apiKey=7282f18fd8814645a4371f9028c9e027"
-      )
-      .then(({ data: { articles } }) => {
-        console.log(articles);
-        set(articles);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
+export default function NewsContainer({ newsData, setNews }) {
   const newsList =
     newsData &&
     newsData.map((news, index) => {

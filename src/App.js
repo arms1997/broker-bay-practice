@@ -1,15 +1,20 @@
 import { useState } from "react";
 
+import useApplicationData from "./hooks/useApplicationData";
 import "./App.css";
 import NewsContainer from "./components/NewsContainer";
 import NewsPage from "./components/NewsPage";
 
 function App() {
-  const [news, setNews] = useState(null);
+  const { newsData, currentNews, updateNews } = useApplicationData();
 
   return (
     <div className="App">
-      {news ? <NewsPage news={news} /> : <NewsContainer setNews={setNews} />}
+      {currentNews ? (
+        <NewsPage news={currentNews} />
+      ) : (
+        <NewsContainer newsData={newsData} setNews={updateNews} />
+      )}
     </div>
   );
 }
