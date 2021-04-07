@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import useApplicationData from "./hooks/useApplicationData";
 import "./App.css";
 import NewsContainer from "./components/NewsContainer";
